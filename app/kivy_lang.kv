@@ -1,0 +1,50 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+<EntryPoint>:
+    grid_lt:grid_lt
+    text_field:text_field
+    text_label:text_label
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDBoxLayout:
+            size_hint_y:.4
+            padding:dp(5),dp(2)
+            orientation:'vertical'
+            md_bg_color:app.theme_cls.primary_color
+            MDAnchorLayout:
+                size_hint_x:None
+                anchor_x: 'right'
+                anchor_y: 'top'
+                pos_hint:{'right':.97}
+                width:dp(50)
+                MDSwitch:
+                    on_active:app.change_theme()
+            MDTextField:
+                id:text_field
+                line_anime:False
+                active_line:False
+                base_direction:'rtl'
+                keyboard_mode:'managed'
+                font_size:dp(40)
+                line_color_normal:app.theme_cls.primary_color
+                line_color_focus:app.theme_cls.primary_color
+                text_color_focus:app.theme_cls.opposite_text_color
+                cursor_color:app.theme_cls.primary_color
+            MDRelativeLayout:
+                size_hint_y:None
+                height:dp(40)
+                MDLabel:
+                    id:text_label
+                    adaptive_height:True
+                    halign:'right'
+        MDGridLayout:
+            size_hint_y:.6
+            id:grid_lt
+            cols:4
+            col_force_default:True
+            row_force_default:True
+            col_default_width:self.width/4
+            row_default_height:self.height/5
+
+
+<EqBtn>:
+    padding:dp(30),dp(20)
